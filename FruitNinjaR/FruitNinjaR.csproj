@@ -111,6 +111,7 @@
   <ItemGroup>
     <Compile Include="Assets\script\fruitScript.cs" />
     <Compile Include="Assets\script\knifeScript.cs" />
+    <Compile Include="Assets\script\shooterScript.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />

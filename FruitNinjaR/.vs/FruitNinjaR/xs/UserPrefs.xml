@@ -1,8 +1,9 @@
-﻿<Properties>
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/script/fruitScript.cs">
+﻿<Properties StartupConfiguration="{C676B005-DBA8-5278-85B8-F13DE87570B8}|Unit Tests">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/script/shooterScript.cs">
     <Files>
-      <File FileName="Assets/script/knifeScript.cs" Line="29" Column="75" />
-      <File FileName="Assets/script/fruitScript.cs" Line="17" Column="5" />
+      <File FileName="Assets/script/knifeScript.cs" Line="27" Column="5" />
+      <File FileName="Assets/script/fruitScript.cs" Line="18" Column="24" />
+      <File FileName="Assets/script/shooterScript.cs" Line="23" Column="71" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -10,7 +11,7 @@
           <Node name="FruitNinjaR" expanded="True">
             <Node name="Assembly-CSharp" expanded="True">
               <Node name="script" expanded="True">
-                <Node name="fruitScript.cs" selected="True" />
+                <Node name="shooterScript.cs" selected="True" />
               </Node>
             </Node>
           </Node>
@@ -20,6 +21,7 @@
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
