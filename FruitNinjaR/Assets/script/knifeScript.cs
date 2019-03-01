@@ -29,4 +29,8 @@ public class knifeScript : MonoBehaviour {
         Vector2 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         transform.position = (pos);
     }
+
+    public bool isRusty() {
+        return rusty;
+    }
 }

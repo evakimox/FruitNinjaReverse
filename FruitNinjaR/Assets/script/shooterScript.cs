@@ -17,8 +17,6 @@ public class shooterScript : MonoBehaviour {
     public GameObject aimIndicator;
     private bool isAiming;
     private float targetAngle;
-    private float curAngle;
-    //0: waiting    1: aiming   
 
 	// Use this for initialization
 	void Start () 
@@ -48,21 +46,24 @@ public class shooterScript : MonoBehaviour {
             float diffy = mousey - centery;
             float dist = Mathf.Sqrt(Mathf.Pow(diffx, 2) + Mathf.Pow(diffy, 2));
             float mouseAngle = Mathf.Acos(diffx / dist);
-            Debug.Log(mouseAngle/3.14 * 180);
             targetAngle = mouseAngle - (Mathf.PI) / 2;
         }
-        Debug.Log("current angle: " + transform.rotation.eulerAngles);
-        if(transform.rotation.eulerAngles.z > 360f) { 
-            
+        if(transform.rotation.eulerAngles.z > 360f) {
+            transform.Rotate(0, 0, -(Mathf.PI)*2);
         }
-        transform.Rotate(0, 0, targetAngle);
-
+        float targetAngleD = (targetAngle / Mathf.PI) * 180;
+        if (transform.rotation.eulerAngles.z - targetAngleD > 1 || transform.rotation.eulerAngles.z - targetAngleD < -1)
+        {
+            transform.rotation = Quaternion.Euler(new Vector3(0, 0, targetAngleD));
+        }
+        else {
+            transform.Rotate(0, 0, 0);
+        }
     }
 
     void OnMouseDown() { 
         isAiming = true;
         aimIndicator.GetComponent<SpriteRenderer>().sprite = fruitTypes[Random.Range(0, 6)];
-        //Debug.Log("mouse:" + Camera.main.ScreenToWorldPoint(Input.mousePosition));
     }
 
     private void OnMouseUp()
@@ -70,6 +71,10 @@ public class shooterScript : MonoBehaviour {
         if (isAiming) {
             GameObject createdFruit = Instantiate(fruit, transform.position, Quaternion.identity);
             createdFruit.GetComponent<SpriteRenderer>().sprite = aimIndicator.GetComponent<SpriteRenderer>().sprite;
+            //Debug.Log(targetAngle * 180 / 3.14);
+            float xSpeed = Mathf.Cos(targetAngle + (Mathf.PI) / 2);
+            float ySpeed = Mathf.Sin(targetAngle + (Mathf.PI) / 2);
+            createdFruit.GetComponent<fruitScript>().dir = new Vector2(xSpeed, ySpeed);
         }
         isAiming = false;
         aimIndicator.GetComponent<SpriteRenderer>().sprite = emptyFruit;
